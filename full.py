@@ -4,7 +4,7 @@ import requests
 import requests_cache
 
 requests_cache.install_cache('aoe_api_cache', backend='sqlite', expire_after=36000)
-cluster = Cluster(contact_points=['192.168.99.100'],port=9042)
+cluster = Cluster(contact_points=['172.17.0.2'],port=9042)
 session = cluster.connect()
 app = Flask(__name__)
 
