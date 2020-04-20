@@ -1,0 +1,25 @@
+sudo docker pull cassandra:latest
+sudo docker run --name cassandra-aoe -p 9042:9042 -d cassandra:latest
+wget -O civs.csv https://raw.githubusercontent.com/alihughf/cloud_project/master/civs.csv
+wget -O strucs.csv https://raw.githubusercontent.com/alihughf/cloud_project/master/struc.csv
+wget -O techs.csv https://raw.githubusercontent.com/alihughf/cloud_project/master/tech.csv
+wget -O units.csv https://raw.githubusercontent.com/alihughf/cloud_project/master/unit.csv
+sudo docker cp civs.csv cassandra-aoe:/home/civilizations.csv
+sudo docker cp strucs.csv cassandra-aoe:/home/structures.csv
+sudo docker cp techs.csv cassandra-aoe:/home/technologies.csv
+sudo docker cp units.csv cassandra-aoe:/home/units.csv
+sudo docker exec -it cassandra-aoe cqlsh
+CREATE KEYSPACE aoe WITH REPLICATION= {'class':'SimpleStrategy','replication_factor':1};
+CREATE TABLE aoe.civs (ID int PRIMARY KEY, Name text);
+CREATE TABLE aoe.strucs (ID int PRIMARY KEY, Name text);
+CREATE TABLE aoe.techs (ID int PRIMARY KEY, Name text);
+CREATE TABLE aoe.units (ID int PRIMARY KEY, Name text);
+COPY aoe.civs (ID,Name) FROM '/home/civs.csv' WITH DELIMITER=',' AND HEADER =FALSE;
+COPY aoe.strucs (ID,Name) FROM '/home/strucs.csv' WITH DELIMITER=',' AND HEADER =FALSE;
+COPY aoe.techs (ID,Name) FROM '/home/techs.csv' WITH DELIMITER=',' AND HEADER =FALSE;
+COPY aoe.units (ID,Name) FROM '/home/units.csv' WITH DELIMITER=',' AND HEADER =FALSE;
+exit()
+
+#to find ip address of cassandra-aoe
+sudo docker inspect cassandra-aoe 
+#change ip address on line 7 of full.py to match that of the cluster
