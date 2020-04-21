@@ -10,9 +10,9 @@ sudo docker cp techs.csv cassandra-aoe:/home/technologies.csv
 sudo docker cp units.csv cassandra-aoe:/home/units.csv
 sudo docker exec -it cassandra-aoe cqlsh
 CREATE KEYSPACE aoe WITH REPLICATION= {'class':'SimpleStrategy','replication_factor':1};
-CREATE TABLE aoe.civs (ID int PRIMARY KEY, Name text);
-CREATE TABLE aoe.strucs (ID int PRIMARY KEY, Name text);
-CREATE TABLE aoe.techs (ID int PRIMARY KEY, Name text);
+CREATE TABLE aoe.civilizations (ID int PRIMARY KEY, Name text);
+CREATE TABLE aoe.structures (ID int PRIMARY KEY, Name text);
+CREATE TABLE aoe.technologies (ID int PRIMARY KEY, Name text);
 CREATE TABLE aoe.units (ID int PRIMARY KEY, Name text);
 COPY aoe.civs (ID,Name) FROM '/home/civs.csv' WITH DELIMITER=',' AND HEADER =FALSE;
 COPY aoe.strucs (ID,Name) FROM '/home/strucs.csv' WITH DELIMITER=',' AND HEADER =FALSE;
