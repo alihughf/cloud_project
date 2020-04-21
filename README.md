@@ -11,3 +11,14 @@ The full.py program has functionality to:
 4. Remove an item from the list by id number.
 
 Functionality added from an external api in the full.py app is a get request to the https://age-of-empires-2-api.herokuapp.com/docs/#/ api to get more detailed statistics on any of the assets that are listed in the 4 tables. This can be done by specifying which of the 4 categories the asset belongs to and then giving either its name or id number.
+
+
+Methods.
+1 - Get Lists. url/list/<category>
+2 - Post item to list. url/list/<category>
+3 - Edit item on list. url/list/<category>
+4 - Delete item from list. url/list/<category>
+5 - Find id number of specific item. url/id/<category>/<name>
+6 - Find more info of specific item from ext api. url/<category>/<id number/name>
+  
+For methods 1-5 in the url use the plural of the category. For 6 use the singular of the category.
