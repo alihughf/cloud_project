@@ -22,3 +22,4 @@ Methods.
 6 - Find more info of specific item from ext api. url/<category>/<id number/name>
   
 For methods 1-5 in the url use the plural of the category. For 6 use the singular of the category.
+N.B for consistency with the game and external api, I have used the American spelling civilizations throughout.
