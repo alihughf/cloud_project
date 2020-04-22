@@ -14,9 +14,9 @@ CREATE TABLE aoe.civilizations (ID int PRIMARY KEY, Name text);
 CREATE TABLE aoe.structures (ID int PRIMARY KEY, Name text);
 CREATE TABLE aoe.technologies (ID int PRIMARY KEY, Name text);
 CREATE TABLE aoe.units (ID int PRIMARY KEY, Name text);
-COPY aoe.civilizations (ID,Name) FROM '/home/civs.csv' WITH DELIMITER=',' AND HEADER =FALSE;
-COPY aoe.structures (ID,Name) FROM '/home/strucs.csv' WITH DELIMITER=',' AND HEADER =FALSE;
-COPY aoe.technologies (ID,Name) FROM '/home/techs.csv' WITH DELIMITER=',' AND HEADER =FALSE;
+COPY aoe.civilizations (ID,Name) FROM '/home/civilizations.csv' WITH DELIMITER=',' AND HEADER =FALSE;
+COPY aoe.structures (ID,Name) FROM '/home/structures.csv' WITH DELIMITER=',' AND HEADER =FALSE;
+COPY aoe.technologies (ID,Name) FROM '/home/technologies.csv' WITH DELIMITER=',' AND HEADER =FALSE;
 COPY aoe.units (ID,Name) FROM '/home/units.csv' WITH DELIMITER=',' AND HEADER =FALSE;
 exit()
 
