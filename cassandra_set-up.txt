@@ -19,6 +19,8 @@ COPY aoe.structures (ID,Name) FROM '/home/structures.csv' WITH DELIMITER=',' AND
 COPY aoe.technologies (ID,Name) FROM '/home/technologies.csv' WITH DELIMITER=',' AND HEADER =FALSE;
 COPY aoe.units (ID,Name) FROM '/home/units.csv' WITH DELIMITER=',' AND HEADER =FALSE;
 exit
+sudo docker build . --tag=cassandrarest:v1
+sudo docker run -p 80:80 cassandrarest:v1
 
 #to find ip address of cassandra-aoe
 sudo docker inspect cassandra-aoe 
