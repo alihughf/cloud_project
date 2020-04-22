@@ -18,7 +18,7 @@ COPY aoe.civilizations (ID,Name) FROM '/home/civilizations.csv' WITH DELIMITER='
 COPY aoe.structures (ID,Name) FROM '/home/structures.csv' WITH DELIMITER=',' AND HEADER =FALSE;
 COPY aoe.technologies (ID,Name) FROM '/home/technologies.csv' WITH DELIMITER=',' AND HEADER =FALSE;
 COPY aoe.units (ID,Name) FROM '/home/units.csv' WITH DELIMITER=',' AND HEADER =FALSE;
-exit()
+exit
 
 #to find ip address of cassandra-aoe
 sudo docker inspect cassandra-aoe 
